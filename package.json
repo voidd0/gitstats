@@ -1,0 +1,50 @@
+{
+  "name": "@v0idd0/gitstats",
+  "version": "2.0.0",
+  "description": "gitstats — local git analytics CLI. Lines of code, commits over time, contributors, heatmap, hotspots, bus factor, streaks, release cadence, burndown. Free forever from vøiddo.",
+  "main": "src/analyzer.js",
+  "bin": {
+    "gitstats": "./bin/gitstats.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "git",
+    "statistics",
+    "analytics",
+    "loc",
+    "commits",
+    "contributors",
+    "heatmap",
+    "hotspots",
+    "bus-factor",
+    "streak",
+    "churn",
+    "cli",
+    "voiddo"
+  ],
+  "author": "vøiddo <support@voiddo.com> (https://voiddo.com)",
+  "license": "MIT",
+  "homepage": "https://voiddo.com/tools/gitstats/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voidd0/gitstats.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voidd0/gitstats/issues",
+    "email": "support@voiddo.com"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ]
+}
