@@ -12,7 +12,7 @@ function git(args, cwd) {
     encoding: 'utf8',
     stdio: ['pipe', 'pipe', 'pipe'],
   });
-  if (res.error || res.status !== 0) return '';
+  if (res.status !== 0) return '';
   return (res.stdout || '').trim();
 }
 
@@ -22,7 +22,7 @@ function isGitRepo(cwd) {
     encoding: 'utf8',
     stdio: ['pipe', 'pipe', 'pipe'],
   });
-  return !res.error && res.status === 0;
+  return res.status === 0;
 }
 
 function getRepoName(cwd) {
