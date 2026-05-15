@@ -1,7 +1,7 @@
 // gitstats — tests. free forever from vøiddo. https://voiddo.com/tools/gitstats/
 
 const analyzer = require('./src/analyzer');
-const { execSync } = require('child_process');
+const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
@@ -25,30 +25,41 @@ function assert(condition, message) {
   if (!condition) throw new Error(message || 'Assertion failed');
 }
 
+function runGit(args) {
+  const result = spawnSync('git', args, { cwd: tmpDir, stdio: 'pipe' });
+  if (result.status === 0) return;
+  if (result.error) throw result.error;
+  throw new Error(`git ${args.join(' ')} failed with status ${result.status}`);
+}
+
 // Create a temp git repo for testing
 const tmpDir = path.join(os.tmpdir(), 'gitstats-test-' + Date.now());
 fs.mkdirSync(tmpDir);
+const nonGitDir = fs.mkdtempSync('/root/gitstats-nonrepo-');
 
 function setupTestRepo() {
-  execSync('git init', { cwd: tmpDir, stdio: 'pipe' });
-  execSync('git config user.email "test@example.com"', { cwd: tmpDir, stdio: 'pipe' });
-  execSync('git config user.name "Test User"', { cwd: tmpDir, stdio: 'pipe' });
+  runGit(['init']);
+  runGit(['config', 'user.email', 'test@example.com']);
+  runGit(['config', 'user.name', 'Test User']);
 
   fs.writeFileSync(path.join(tmpDir, 'index.js'), 'console.log("hello");\nconsole.log("world");\n');
   fs.writeFileSync(path.join(tmpDir, 'style.css'), 'body { color: red; }\n');
   fs.writeFileSync(path.join(tmpDir, 'README.md'), '# Test\n\nThis is a test.\n');
 
-  execSync('git add .', { cwd: tmpDir, stdio: 'pipe' });
-  execSync('git commit -m "initial commit"', { cwd: tmpDir, stdio: 'pipe' });
+  runGit(['add', '.']);
+  runGit(['commit', '-m', 'initial commit']);
 
   fs.writeFileSync(path.join(tmpDir, 'index.js'), 'console.log("hello");\nconsole.log("world");\nconsole.log("!");\n');
-  execSync('git add .', { cwd: tmpDir, stdio: 'pipe' });
-  execSync('git commit -m "second commit"', { cwd: tmpDir, stdio: 'pipe' });
+  runGit(['add', '.']);
+  runGit(['commit', '-m', 'second commit']);
 }
 
 function cleanupTestRepo() {
   try {
     fs.rmSync(tmpDir, { recursive: true, force: true });
+  } catch {}
+  try {
+    fs.rmSync(nonGitDir, { recursive: true, force: true });
   } catch {}
 }
 
@@ -61,7 +72,7 @@ test('isGitRepo returns true for git directory', () => {
 });
 
 test('isGitRepo returns false for non-git directory', () => {
-  assert(analyzer.isGitRepo('/tmp') === false, 'Should return false for non-git dir');
+  assert(analyzer.isGitRepo(nonGitDir) === false, 'Should return false for non-git dir');
 });
 
 test('getRepoName returns directory name', () => {
@@ -139,10 +150,10 @@ test('getAuthorStats returns stats object', () => {
 });
 
 test('handles non-git directory gracefully', () => {
-  const count = analyzer.getCommitCount('/tmp');
+  const count = analyzer.getCommitCount(nonGitDir);
   assert(count === 0, 'Should return 0 for non-git dir');
 
-  const contributors = analyzer.getContributors('/tmp');
+  const contributors = analyzer.getContributors(nonGitDir);
   assert(contributors.length === 0, 'Should return empty array');
 });
 

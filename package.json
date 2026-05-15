@@ -1,6 +1,6 @@
 {
   "name": "@v0idd0/gitstats",
-  "version": "2.0.0",
+  "version": "2.0.3",
   "description": "gitstats — local git analytics CLI. Lines of code, commits over time, contributors, heatmap, hotspots, bus factor, streaks, release cadence, burndown. Free forever from vøiddo.",
   "main": "src/analyzer.js",
   "bin": {
@@ -26,7 +26,7 @@
   ],
   "author": "vøiddo <support@voiddo.com> (https://voiddo.com)",
   "license": "MIT",
-  "homepage": "https://voiddo.com/tools/gitstats/",
+  "homepage": "https://tools.voiddo.com/gitstats/?ref=gitstats-npm",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/voidd0/gitstats.git"
@@ -46,5 +46,9 @@
     "src",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "funding": {
+    "type": "individual",
+    "url": "https://voiddo.com/contact/"
+  }
 }

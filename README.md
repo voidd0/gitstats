@@ -5,12 +5,16 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-A0573A.svg)](LICENSE)
 [![Node ≥14](https://img.shields.io/badge/node-%E2%89%A514-1F1A14)](package.json)
 
+**[Homepage](https://tools.voiddo.com/gitstats/?ref=gitstats-readme)** · **[GitHub](https://github.com/voidd0/gitstats)** · **[npm](https://www.npmjs.com/package/@v0idd0/gitstats)** · **[All tools](https://tools.voiddo.com/?ref=gitstats-catalog-readme)** · **[Contact](mailto:support@voiddo.com)**
+
+---
+
 **Local git analytics, no signup, no remote.** Run it in any repo and get an instant read on the codebase — LOC, contributors, commit heatmap, bug hotspots, bus factor, streaks, release cadence, burndown.
 
 Free forever gift from [vøiddo](https://voiddo.com).
 
 ```
-  gitstats — voiddo.com/tools/gitstats
+  gitstats — tools.voiddo.com/gitstats
   ────────────────────────────
 
   SUMMARY
@@ -164,13 +168,13 @@ Exports: `isGitRepo`, `getRepoName`, `getCommitCount`, `getContributors`, `getLi
 
 vøiddo builds sharp, free-forever CLIs for devs who are tired of paywalls:
 
-- [`@v0idd0/jsonyo`](https://voiddo.com/tools/jsonyo/) — JSON that yells at you when it's broken
-- [`@v0idd0/tokcount`](https://voiddo.com/tools/tokcount/) — token counter for 60+ LLMs (GPT-5.4, Claude Opus 4.7, Gemini 3.1, Llama 4, Grok 4.1)
-- [`@v0idd0/ctxstuff`](https://voiddo.com/tools/ctxstuff/) — stuff a repo into an LLM context window
-- [`@v0idd0/promptdiff`](https://voiddo.com/tools/promptdiff/) — diff two prompts with token impact + word-frequency delta
-- [`@v0idd0/httpwut`](https://voiddo.com/tools/httpwut/) — HTTP debugger with DNS/TCP/TLS phase timing
+- [`@v0idd0/jsonyo`](https://tools.voiddo.com/jsonyo/?ref=gitstats-related-jsonyo-readme) — JSON that yells at you when it's broken
+- [`@v0idd0/tokcount`](https://tools.voiddo.com/tokcount/?ref=gitstats-related-tokcount-readme) — token counter for 60+ LLMs (GPT-5.4, Claude Opus 4.7, Gemini 3.1, Llama 4, Grok 4.1)
+- [`@v0idd0/ctxstuff`](https://tools.voiddo.com/ctxstuff/?ref=gitstats-related-ctxstuff-readme) — stuff a repo into an LLM context window
+- [`@v0idd0/promptdiff`](https://tools.voiddo.com/promptdiff/?ref=gitstats-related-promptdiff-readme) — diff two prompts with token impact + word-frequency delta
+- [`@v0idd0/httpwut`](https://tools.voiddo.com/httpwut/?ref=gitstats-related-httpwut-readme) — HTTP debugger with DNS/TCP/TLS phase timing
 
-Full catalog: [voiddo.com/tools](https://voiddo.com/tools/).
+Full catalog: [tools.voiddo.com](https://tools.voiddo.com/?ref=gitstats-catalog-readme).
 
 ## License
 
@@ -178,10 +182,10 @@ MIT © [vøiddo](https://voiddo.com) — free forever, no asterisks.
 
 ## Links
 
-- Docs: https://voiddo.com/tools/gitstats/
+- Docs: https://tools.voiddo.com/gitstats/?ref=gitstats-docs-readme
 - Source: https://github.com/voidd0/gitstats
 - npm: https://npmjs.com/package/@v0idd0/gitstats
-- Studio: https://voiddo.com
+- Studio: https://voiddo.com/?ref=gitstats-studio-readme
 - Issues: https://github.com/voidd0/gitstats/issues
 - Support: support@voiddo.com
 
